@@ -32,3 +32,45 @@ console.log(url.replace("%20", "-")) // https://hitesh.com/hitesh-chaudhary
 console.log(url.includes("hitesh")) // true
 
 console.log(gameName.split("-"));
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// comparison
+// a > b ; compares alphabetically, case-sensitively // false
+// to compare insensitively, we make function
+// function areEqualCaseInsensitive(str1, str2) {
+//     return str1.toUpperCase() === str2.toUpperCase();
+//   } but, some sign like turkish sign is same when uppercased, and a latin sign is different in lowercase
+
+// use localeCompare()
+// const areEqual = (str1, str2, locale = "en-US") =>
+//     str1.localeCompare(str2, locale, { sensitivity: "accent" }) === 0;
+  
+//   areEqual("ß", "ss", "de"); // false
+//   areEqual("ı", "I", "tr"); // true
+  
+
+  
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// const strPrim = "foo"; // A literal is a string primitive
+// const strPrim2 = String(1); // Coerced into the string primitive "1"
+// const strPrim3 = String(true); // Coerced into the string primitive "true"
+// const strObj = new String(strPrim); // String with new returns a string wrapper object.
+
+// console.log(typeof strPrim); // "string"
+// console.log(typeof strPrim2); // "string"
+// console.log(typeof strPrim3); // "string"
+// console.log(typeof strObj); // "object"
+ 
+// eval
+// const s1 = "2 + 2"; // creates a string primitive
+// const s2 = new String("2 + 2"); // creates a String object
+// console.log(eval(s1)); // returns the number 4
+// console.log(eval(s2)); // returns the string "2 + 2"
+// never use direct eval
+// use strict method in a function.
+
+console.log(toString(10))
+
