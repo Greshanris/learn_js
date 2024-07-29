@@ -31,3 +31,9 @@ console.log(Array.isArray("rishav")); // false: boolean
 // to convert to array
 console.log(Array.from("Rishav")); // [ 'R', 'i', 's', 'h', 'a', 'v' ] 
 console.log(Array.from({name: "rishav"})); // gives empty array [], we have to specify whether to create keys to array or value to array : interesting
+
+let score1 = 100
+let score2 = 200
+let score3 = 300
+
+console.log(Array.of(score1, score2, score3)); // Returns a new array from a set of elements(variables, arrays, etc.) // [ 100, 200, 300 ]
