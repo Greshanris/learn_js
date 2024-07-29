@@ -1,4 +1,4 @@
-// array
+// array: part1
 
 // behind the scenes
 const myArr = [0, 1, 2, 3, 4, 5]
