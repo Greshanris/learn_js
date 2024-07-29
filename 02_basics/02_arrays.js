@@ -37,3 +37,5 @@ let score2 = 200
 let score3 = 300
 
 console.log(Array.of(score1, score2, score3)); // Returns a new array from a set of elements(variables, arrays, etc.) // [ 100, 200, 300 ]
+
+// see more info about Arrays.from and Arrays.to, Arrays.isArray , .flat(infinity) method, [...array1, ...array2], concat
