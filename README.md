@@ -1,2 +1,6 @@
 # js-hindi-youtube
-A code repo for javascript series at youtube channel
+A code repository for learning javascript from "chai aur code" by Hitesh Choudhary
+
+will be included
+- Basics to advance concepts
+- exercises
