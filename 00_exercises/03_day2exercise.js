@@ -61,3 +61,11 @@ function frequentWord(param) {
 }
 
 console.log(`The most frequent word is '${frequentWord(arraySentence)}'.`); 
+
+// 4. Calculate the total annual income of the person by extracting the numbers from the following text. 'He earns 5000 euro from salary per month, 10000 euro annual bonus, 15000 euro online courses per month.'
+const question = 'He earns 5000 euro from salary per month, 10000 euro annual bonus, 15000 euro online courses per month.'
+const numArray = question.match(/\d+/gi)
+const annualSalary = Number(numArray[0]) * 12
+const annnualCourse = Number(numArray[2]) * 12
+const totalAnnualIncome = annualSalary + annnualCourse + Number(numArray[1])
+console.log(`The total annual income of the person is ${totalAnnualIncome} euros.`);
