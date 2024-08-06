@@ -61,4 +61,45 @@ console.log(4!==4); //false
 console.log(4!='4'); //false
 console.log(4!=='4'); //true
 console.log(4=='4'); //true
-console.log(4==='4');
+console.log(4==='4'); //false
+
+let pyLength = 'python'.length
+let jaLength = 'jargon'.length
+// task: to make it falsy comparison statement
+console.log(!(pyLength === jaLength)); //false
+
+/* 6. Figure out the result of the following expressions first without using console.log(). After you decide the result confirm it by using console.log()
+
+4 > 3 && 10 < 12 //true
+4 > 3 && 10 > 12 //false
+4 > 3 || 10 < 12 //true
+4 > 3 || 10 > 12 //true
+!(4 > 3) //false
+!(4 < 3) //true
+!(false) //true
+!(4 > 3 && 10 < 12) //false
+!(4 > 3 && 10 > 12) //true
+!(4 === '4') //true
+There is no 'on' in both dragon and python // true */ 
+const string1 = "dragon"
+const string2 = "python"
+console.log((string1.includes("on")) && string2.includes("on")); //True
+
+/* 7. Use the Date object to do the following activities
+
+What is the year today?
+What is the month today as a number?
+What is the date today?
+What is the day today as a number?
+What is the hours now?
+What is the minutes now?
+Find out the numbers of seconds elapsed from January 1, 1970 to now. */
+const newdate = new Date()
+console.log(`The year today is ${newdate.getFullYear()}`);
+console.log(`The month today as a number is ${newdate.getMonth()}`);
+console.log(`The date today is ${newdate.getDate()}`); // day of the month is 6th, day(1-31)
+console.log(`The day to day is ${newdate.getDay()}`); //2
+console.log(`The hours now is ${newdate.getHours()}`); // 18
+console.log(`The minutes now is ${newdate.getMinutes()}`); // 55
+console.log(`The second passed is ${newdate.getSeconds()}`); // 27
+console.log(`The numbers of seconds elapsed from January 1, 1970 to now is ${newdate.getTime()}`);
