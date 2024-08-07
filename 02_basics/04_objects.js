@@ -8,7 +8,7 @@
 
 // console.log(newtinderUser); //{}
 
-const tinderUser = {}
+const tinderUser = {} // non-singleton object
 tinderUser.id = "123abc"
 tinderUser.name = "Sammy"
 tinderUser.isLoggedIn = false
@@ -25,4 +25,6 @@ const regularUser = {
     }
 }
 
-console.log(regularUser.fullname?.userFullName.firstName);
+console.log(regularUser.fullname.userFullName.firstName); // This is one way to access objects inside objects
+// optional chaining
+// 
