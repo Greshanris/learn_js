@@ -32,3 +32,21 @@ function perimeter (A, B, C) {
     return `The perimeter is ${result}`
 }
 console.log(perimeter(sideA, sideB, sideC))
+
+// 3. Get length and width using prompt and calculate an area of rectangle (area = length x width and the perimeter of rectangle (perimeter = 2 x (length + width))
+const len = parseFloat(prompt("Enter length: "))
+const wid = parseFloat(prompt("Enter width: "))
+
+let rectArea = (l, w) => {
+    if (isNaN(l) || isNaN(w)) {
+        return "Not a number"
+    } else if (l<0 || w<0) {
+        return "negative number"
+    } else {
+        let a = l*w
+        let b = 2*(l+w)
+        return `The area is ${a} and perimeter is ${b}`
+    }
+}
+
+console.log(rectArea(len, wid))
