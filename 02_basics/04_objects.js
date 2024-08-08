@@ -134,3 +134,18 @@ console.log(instructor); // now we can directly use the key to access the value
 //     "coursename": "js in hindi",
 //     "price": "free"
 // }
+
+// sometimes api comes in arrays
+// it is not necessary that api will come in objects
+// we can use loops on array and for each iteration we can access the particular object
+// [
+//     {},
+//     {},
+//     {}
+// ]
+
+// we will not be able to understand what data is coming and how much?
+// so, we need to spend time on each
+// we can understand it using online tools like json formatter
+// we can use tree and know which acts like object and which act like list
+// all are in json format: javascript object notation
