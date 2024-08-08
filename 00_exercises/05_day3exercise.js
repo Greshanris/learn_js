@@ -1,5 +1,5 @@
 // day 3
-
+// note: windows prompt() is used in different questions' answers if needed to see, comment down others, and run it.
 // exercises: Level 2
 
 // 1. Write a script that prompt the user to enter base and height of the triangle and calculate an area of a triangle (area = 0.5 x b x h).
@@ -50,3 +50,21 @@ let rectArea = (l, w) => {
 }
 
 console.log(rectArea(len, wid))
+
+// 4. Get radius using prompt and calculate the area of a circle (area = pi x r x r) and circumference of a circle(c = 2 x pi x r) where pi = 3.14.
+const circleAreaCircumference = () => {
+    while (true) {
+        let radius = parseFloat(prompt("Enter radius: "))
+        if (isNaN(radius)) {
+            console.log(`The value entered is not a number. \n Please renter:`)
+        } else if (radius <= 0) {
+            console.log(`The radius is negative or zero. \n Please renter:`)
+        } else {
+            let area = Math.round(Math.PI * radius * radius)
+            let circumference = Math.round(2 * Math.PI * radius)
+            return `The area of the circle is ${area}. \nThe circumference of the circle is ${circumference}.`
+        }
+    }
+}
+
+console.log(circleAreaCircumference());
