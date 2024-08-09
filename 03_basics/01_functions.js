@@ -32,4 +32,4 @@ function loginUserMessage(username = "sam") {
 }
 
 // console.log(loginUserMessage("rishav"))
-console.log(loginUserMessage("rishav")) // undefined
+// console.log(loginUserMessage("rishav")) // undefined
