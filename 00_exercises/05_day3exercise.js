@@ -163,3 +163,40 @@ const calculateSlopeIntercept = () => {
 }
 
 console.log(calculateSlopeIntercept())
+
+// 6. Slope is m = (y2-y1)/(x2-x1). Find the slope between point (2, 2) and point(6,10)
+// If 2a-like values are passed, it will not calculate, still thinking about how to do it.
+
+const slopeCalculator = () => {
+    const pointPattern = /\((\d*\.?\d*)[,]\s*(\d*\.?\d*)\)/
+    let pointOne;
+    let pointTwo;
+        
+    while (true) {
+        pointOne = prompt("Enter the equation in the form (x1, y1): ")
+        pointTwo = prompt("Enter the equation in the form (x2, y2): ")
+    
+        // checking if the the equation matches the pattern
+        if (pointOne.match(pointPattern) && pointTwo.match(pointPattern)) {
+            break
+        } else {
+            alert("Invalid point Format. Please retype the points")
+        }
+    }
+
+    let [, xOne, yOne] = pointOne.match(pointPattern)
+    let [, xTwo, yTwo] = pointTwo.match(pointPattern)
+
+    xOne = parseFloat(xOne)
+    yOne = parseFloat(yOne)
+    xTwo = parseFloat(xTwo)
+    yTwo = parseFloat(yTwo)
+
+    let slope = (yTwo-yOne)/(xTwo-xOne)
+
+    if (isNaN(slope) && slope === (0/0)) {
+        alert(`The value is either not number or the value results 0/0`)
+    } else {
+        return `Slope (m): ${slope}`
+    }
+}
