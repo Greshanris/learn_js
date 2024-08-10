@@ -128,9 +128,29 @@ Second capture group, which captures y-intercept c
 /*
 example: if y = 2x -2, then ["y = 2x -2", "2", "-2"]
 */
+// to calculate, just put y = 2x - 2
 const calculateSlopeIntercept = () => {
-    let equation = prompt("Enter equation in form (y = mx + c): ")
-    // using array destructuring to put three elements, allvalue, m, c
+    const getValidEquation = () => {
+        const equationPattern = /y\s*=\s*([+-]?\d*\.?\d*)x\s*([+-]\s*\d*\.?\d*)/
+        let equation;
+        
+        while (true) {
+            equation = prompt("Enter the equation in the form (y = mx +c): ")
+    
+            // checking if the the equation matches the pattern
+            if (equation.match(equationPattern)) {
+                break
+            } else {
+                alert("Invalid equation Format. Please retype the equation")
+            }
+        }
+    
+        return equation
+    }
+
+    let equation =getValidEquation();
+    
+    // using array destructuring and extract three elements (allvalue, m, c)
     let [_, m, c] = equation.match(/y\s*=\s*([+-]?\d*\.?\d*)x\s*([+-]\s*\d*\.?\d*)/)
     m = parseFloat(m.replace(/\s+/g, ""))
     c = parseFloat(c.replace(/\s+/g, "")) // removes any spaces if present
