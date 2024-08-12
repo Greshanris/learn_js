@@ -346,3 +346,19 @@ const legalAgeDrive = () => {
 }
 
 console.log(legalAgeDrive())
+
+// 14. Write a script that prompt the user to enter number of years. Calculate the number of seconds a person can live. Assume some one lives just hundred years
+
+const ageInSecond = () => {
+    while (true) {
+        const age = parseInt(prompt("Enter number of years you live: "), 10)
+        const yearInSecond = age * 31536000
+        if (isNaN(age) || age < 0 || age > 120) {
+            alert("Invalid Age")
+        } else {
+            return `You lived ${yearInSecond} seconds.`
+        }
+    }
+}
+
+console.log(ageInSecond())
