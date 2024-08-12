@@ -259,3 +259,21 @@ const questionSeven = () => {
 }
 
 console.log(questionSeven())
+
+// 9. Write a script that prompt a user to enter hours and rate per hour. Calculate pay of the person?
+const payCalculator = () => {
+    while (true) {
+        let hours = parseFloat(prompt("Enter hours: "))
+        let ratePerHour = parseFloat(prompt("Enter rate per hour: "))
+        if (isNaN(hours) || hours < 0) {
+            console.log(alert("Hours is Negative or not a number."))
+        } else if (isNaN(ratePerHour) || ratePerHour < 0) {
+            console.log(alert(`Rate is Negative or not a number.`))
+        } else {
+            weeklyEarnings = hours * ratePerHour
+            return `Your weekly earning is ${weeklyEarnings}.`
+        }
+    }
+}
+
+console.log(payCalculator())
