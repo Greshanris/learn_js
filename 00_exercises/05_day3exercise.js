@@ -277,3 +277,12 @@ const payCalculator = () => {
 }
 
 console.log(payCalculator())
+
+// 10. If the length of your name is greater than 7 say, your name is long else say your name is short.
+const name = prompt("Enter your Name: ")
+const nameLength = name.length
+if (nameLength > 7) {
+    console.log(`Name '${name}' is long.`)
+} else {
+    console.log(`Name '${name}' is short.`)
+}
