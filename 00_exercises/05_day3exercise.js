@@ -239,7 +239,7 @@ const compareSlopes = (result1, result2) => {
 
 compareSlopes(equationResult, pointResult)
 
-// 7. Calculate the value of y (y = x2 + 6x + 9). Try to use different x values and figure out at what x value y is 0.
+// 8. Calculate the value of y (y = x2 + 6x + 9). Try to use different x values and figure out at what x value y is 0.
 // Takes user input to calculate:
 const questionSeven = () => {
     const valueY = (x) => {
