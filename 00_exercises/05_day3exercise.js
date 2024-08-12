@@ -362,3 +362,21 @@ const ageInSecond = () => {
 }
 
 console.log(ageInSecond())
+
+/* 15. Create a human readable time format using the Date time object
+YYYY-MM-DD HH:mm
+DD-MM-YYYY HH:mm
+DD/MM/YYYY HH:mm
+*/
+const newDate = new Date()
+const year = newDate.getFullYear()
+const month = newDate.getMonth() + 1
+const date = newDate.getDate()
+const hours = newDate.getHours()
+const minutes = newDate.getMinutes()
+
+const firstFormat = `${year}-${month}-${date} ${hours}:${minutes}`
+const secondFormat = `${date}-${month}-${year} ${hours}:${minutes}`
+const thirdFormat = `${date}/${month}/${year} ${hours}:${minutes}`
+
+console.log(`${firstFormat} \n${secondFormat} \n${thirdFormat}`)
