@@ -240,8 +240,7 @@ const compareSlopes = (result1, result2) => {
 compareSlopes(equationResult, pointResult)
 
 // 7. Calculate the value of y (y = x2 + 6x + 9). Try to use different x values and figure out at what x value y is 0.
-// well, using different values of x and trying to know when x value is 0 is troublesome.
-// later on i will use loop to do it.
+// Takes user input to calculate:
 const questionSeven = () => {
     const valueY = (x) => {
         let y = Math.pow(x, 2) + 6*x + 9
@@ -250,11 +249,13 @@ const questionSeven = () => {
     const xValue = Number(prompt("Enter the value of X: "))
     const yValue = valueY(xValue)
 
-    if (yValue === 0) {
-        console.log(`At x = ${xValue}, y is ${yValue}.`)
-    } else {
-        console.log(`At x = ${xValue}, y is ${yValue}.`)
+    for (let x = -100; x <= 100; x++) {
+        if (valueY(x) === 0) {
+            console.log(`The value of x that makes y equals to 0 is x = ${x}`)
+        }
     }
+
+    return `The value you entered is ${xValue} while the y value is ${yValue}`
 }
 
 console.log(questionSeven())
