@@ -129,6 +129,7 @@ Second capture group, which captures y-intercept c
 example: if y = 2x -2, then ["y = 2x -2", "2", "-2"]
 */
 // to calculate, just put y = 2x - 2
+
 const calculateSlopeIntercept = () => {
     const getValidEquation = () => {
         const equationPattern = /y\s*=\s*([+-]?\d*\.?\d*)x\s*([+-]\s*\d*\.?\d*)/
@@ -149,7 +150,7 @@ const calculateSlopeIntercept = () => {
     }
 
     let equation =getValidEquation();
-    
+
     // using array destructuring and extract three elements (allvalue, m, c)
     let [_, m, c] = equation.match(/y\s*=\s*([+-]?\d*\.?\d*)x\s*([+-]\s*\d*\.?\d*)/)
     m = parseFloat(m.replace(/\s+/g, ""))
@@ -159,13 +160,22 @@ const calculateSlopeIntercept = () => {
     let xIntercept = -c/m
     let yIntercept = c
 
-    return `Slope (m): ${m}, x-intercept: ${xIntercept}, y-intercept: ${yIntercept}`
+    return {
+        equation: equation,
+        slope: m,
+        xIntercept: xIntercept,
+        yIntercept: yIntercept
+    }
 }
 
-console.log(calculateSlopeIntercept())
+const equationResult = calculateSlopeIntercept()
+
+const equationSlope = equationResult.slope
+const xIntercept = equationResult.xIntercept
+const yIntercept = equationResult.yIntercept
+console.log(`slope: ${equationSlope}, xIntercept: ${xIntercept}, yIntercept:${yIntercept}`)
 
 // 6. Slope is m = (y2-y1)/(x2-x1). Find the slope between point (2, 2) and point(6,10)
-// If 2a-like values are passed, it will not calculate, still thinking about how to do it.
 
 const slopeCalculator = () => {
     const pointPattern = /\((\d*\.?\d*)[,]\s*(\d*\.?\d*)\)/
@@ -194,9 +204,37 @@ const slopeCalculator = () => {
 
     let slope = (yTwo-yOne)/(xTwo-xOne)
 
-    if (isNaN(slope) && slope === (0/0)) {
+    if (isNaN(slope)) {
         alert(`The value is either not number or the value results 0/0`)
     } else {
-        return `Slope (m): ${slope}`
+        return {
+            slope: slope,
+            points: [{x: xOne, y: yOne}, {x: xTwo, y: yTwo}]
+        }
+
     }
 }
+
+const pointResult = slopeCalculator()
+
+const pointSlope = pointResult.slope
+const points = pointResult.points
+console.log(`pointslope: ${pointSlope}`) 
+points.forEach(point => console.log(`(${point.x}, ${point.y})`))
+
+// 7. Compare the slope of above two questions
+
+const compareSlopes = (result1, result2) => {
+    const slope1 = result1.slope
+    const slope2 = result2.slope
+
+    if (slope1 > slope1) {
+        console.log(`Slope of first equation (${slope1}) is greater.`)
+    } else if (slope2 > slope1) {
+        console.log(`Slope from second points (${slope2}) is greater`)
+    } else {
+        console.log(`Both slopes are equal: ${slope1}`)
+    }
+}
+
+compareSlopes(equationResult, pointResult)
