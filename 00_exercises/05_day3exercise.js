@@ -298,3 +298,51 @@ if (firstName.length > lastName.length) {
 } else {
     console.log(`Your first name, ${firstName} and your family name, ${lastName} is equal in length.`)
 }
+
+// 12. Declare two variables myAge and yourAge and assign them initial values and myAge and yourAge.
+
+const myAge = 23
+
+while (true) {
+    let yourAge = parseInt(prompt("Enter your age: "))
+    if (isNaN(yourAge)) {
+        alert('Please renter your age.')
+    } else if (myAge > yourAge) {
+        let differenceInAge = myAge - yourAge
+        console.log(`I am ${differenceInAge} years older than you.`)
+        break
+    } else if (myAge < yourAge) {
+        let differenceInAge = yourAge -myAge
+        console.log(`I am ${differenceInAge} years younger than you.`)
+        break
+    } else {
+        console.log(`We are of Same age.`)
+        break
+    }
+}
+
+// 13. Using prompt get the year the user was born and if the user is 18 or above allow the user to drive if not tell the user to wait a certain amount of years.
+
+const legalAgeDrive = () => {
+    const currentDate = new Date()
+    const currentYear = currentDate.getFullYear()
+    while (true) {
+        let birthYear = parseInt(prompt("Enter birth year: "), 10)
+
+        if (!isNaN(birthYear) && birthYear > 1900 && birthYear <= currentYear) {
+            const age = currentYear - birthYear
+            const ageLeft = 18 - age
+            if (age >= 18) {
+                alert(`You are ${age}. You are old enough to drive.`)
+                return `You are ${age}. You are old enough to drive.`
+            } else {
+                alert(`You are ${age}. You will be allowed to drive after ${ageLeft} years.`)
+                return `You are ${age}. You will be allowed to drive after ${ageLeft} years.`
+            }
+        } else {
+            alert("Please enter a valid birth year.")
+        }     
+    }
+}
+
+console.log(legalAgeDrive())
