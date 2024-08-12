@@ -286,3 +286,15 @@ if (nameLength > 7) {
 } else {
     console.log(`Name '${name}' is short.`)
 }
+
+// 11. Compare your first name length and your family name length and you should get this output.
+let firstName = prompt("Enter first Name: ")
+let lastName = prompt("Enter family Name: ")
+
+if (firstName.length > lastName.length) {
+    console.log(`Your first name, ${firstName} is longer than your family name, ${lastName}`)
+} else if (firstName.length <lastName.length) {
+    console.log(`Your first name, ${firstName} is shorter than your family name, ${lastName}`)
+} else {
+    console.log(`Your first name, ${firstName} and your family name, ${lastName} is equal in length.`)
+}
