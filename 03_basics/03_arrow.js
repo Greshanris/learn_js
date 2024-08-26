@@ -55,5 +55,13 @@ const chai = () => {
 
 // const addTwo = (num1, num2) => num1 + num2
 
-const addTwo = (num1, num2) => ( num1 + num2 )
+// const addTwo = (num1, num2) => ( num1 + num2 )
+
+// if we had to return object,
+const addTwo = (num1, num2) => ({username: "rishav"})
+
 console.log(addTwo(3, 4));
+
+const myArray = [2, 5, 3, 7, 8]
+
+myArray.forEach(() => {})
