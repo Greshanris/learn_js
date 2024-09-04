@@ -65,4 +65,23 @@ now, in global exevution phase (no.3)L
 
 
 All of this is basic, now we will see call stack
+
 # call stack
+
+Global execution context
+methods:
+    one()
+    two()
+    three()
+
+when one() method is executed inside the Global execution context:
+
+**lifo concept:** Last In and First Out
+
+is used,
+for instance, there is three() method is called inside two() and two() is called inside the one().
+
+Which will be executed first?
+Ans: The last in first out concept, where if the last one is three() to be executed inside the global execution context, then the three() is method which is executed first and passed to parent execution, then two() and then one()
+![alt text](image.png)
+
