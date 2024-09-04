@@ -42,12 +42,21 @@ for (const key of map) {
 [ 'Fr', 'France' ]
 [ 'USA', 'United States of America' ] */ // This is in array format
 
-// But here, if destructure the array like this:
+// But here, if we destructure the array like this:
 for (const [key, value] of map) {
-    console.log(key);
-    
+    // console.log(key, ':-', value);
 }
 /*
  IN
 Fr
 USA */
+
+const myObject = {
+    'game1': 'NFS',
+    'game2': 'Spiderman'
+}
+
+// for (const [key, value] of myObject) {
+//     console.log(key, ':-', value);
+// } // myobj is not iteratable
+
