@@ -13,6 +13,7 @@
 - document.getElementById('firstHeading').innerHTML = "<h1>Chai aur code</h1>" 
 This is for manipulation.
 
+
 - we can use 
 
 # Events in Browser
