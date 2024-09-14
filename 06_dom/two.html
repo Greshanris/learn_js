@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai aur Code</title>
+</head>
+<body style="background-color: rgb(43, 34, 34); color: rgb(182, 236, 236);">
+    <div class="parent">
+        <!-- hello, my name is rishav Chaudhary -->
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent')
+    console.log(parent); /* <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+    </div> */
+    console.log(parent.children); /* HTMLCollection(5) [div.day, div.day, div.day, div.day, div.day] 
+    0: div.day
+    ... and so on
+        length: 5
+    [[Prototype]]: HTMLCollection */
+    console.log(parent.children[1]); // <div class="day">Tuesday</div>
+    console.log(parent.children[1].innerHTML); // Tuesday
+    console.log(parent.children[1].innerContent); // Undefined
+    console.log(parent.children[1].textContent); // Tuesday, span content appearing but not html tag
+
+    for (let i = 0; i < parent.children.length; i++) {
+        console.log(parent.children[i].innerHTML);
+    }
+    parent.children[1].style.color = "orange"
+    console.log(parent.firstElementChild); // <div class="day">Monday</div> // Give first child element of parent
+    console.log(parent.lastElementChild); // <div class="day">Friday</div>
+    
+    // To find the parent from child element, now, since the day is the child class
+    const dayOne = document.querySelector('.day')
+    console.log(dayOne); // <div class="day">Monday</div>
+    console.log(dayOne.parentElement); /*<div class="parent">
+        <div class="day">Monday</div>
+        <div class="day" style="color: orange;">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+    </div>*/
+    console.log(dayOne.nextElementSibling); // <div class="day" style="color: orange;">Tuesday</div>
+
+    console.log("NODES ", parent.childNodes);
+    /* a enter could be a text, then div.day then text, then div.day could all be nodes
+    the complex dom model beside each is numerous, and if we enter command from the div.parent, the nodes will not change, but if we comment something, nodes will increase by 2, first text, comment, then comment */
+    
+</script>
+</html>
