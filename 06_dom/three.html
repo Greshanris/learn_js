@@ -14,7 +14,32 @@
     const div = document.createElement('div')
     console.log(div);
     // Now, what i needs to do is to add property inside the div element such as className, Id
-    // Every element is the nodelist, every values are availabel from id to class. but this is not set.
-    
+    // Every element is the nodelist, every values are available from id to class. but there is not set values.
+
+    div.className = "main"
+    // div.id = "myId"
+    // <div class="main" id="myId"></div>
+    div.id = Math.round(Math.random() * 10 + 1)
+    div.setAttribute("title", "generated title") // key, value (for new attribute not defined)
+    div.style.backgroundColor = "green"
+    div.style.padding ="12px"
+    /* Upto here why div or the attribute are not displayed in webpages?
+    since, we created a div but it is now in memory, but it is not attached to page.
+    we have to attach the document, and that is where we learn from here */
+
+    // Optimization
+    // div.innerText = "Chai aur code"
+    /* When there is no option of attribute selection like div.id or div.className, developers prefer more to the div.setAttribute.
+    Reason: div.id or div.className or div.innerText overwrite the values.
+    First, they will select the values or the reference and bring it and set the values.
+
+    div.setAttribute does not bring out the select the values, but directly set the values, one round trip is less spent. */
+
+    // Developers prefer this
+    const addText = document.createTextNode("Chai aur code")
+    div.appendChild(addText)
+
+    // Now finally we will attach it to document to view it in webpage
+    document.body.appendChild(div)
 </script>
 </html>
