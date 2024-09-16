@@ -75,3 +75,61 @@ buttons.forEach(function (button) {
 });
 
 ```
+## Project 2 Solution tried
+```
+// Project 2:
+
+/* Through index.html we found out:
+1. There is a form element. (There is separate form type event usage, which will not be used here.)
+2. Inside form Element, inside <p> tag, there is <label> tag denoting to Height in CM. We don't have anything to do with this.
+3. Input element, this is where we will use js with.
+4. First input has id : "height", and type is text, so we even need to change the text to num.
+5. Second input has id: "weight", and type is same text.
+6. There is a button with text as Calculate
+7. There is div tag with id: "result" which is empty right now. This is where we will show result after calculation.
+ */
+
+/* Steps part 1:
+1. First of all we need to select the form element, this is because submit button is inside the form.
+2. So, we can't use click event, but we have to use submit type event because this is form.
+ */
+const form = document.querySelector('form');
+
+// form is submitted either with POST type or GET type.
+// And, whenever it is submitted, the values goes to url or server.
+// And, we need to stop it. Because, we are not submitting it to server. So, whatever the form's default action, we have to stop it here.
+
+// To Stop the form's default action, there is a method in event's, .preventDefault inside call back function.
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  // Now, we need values, one we need height, another we need is weight.
+  // so, what we need is Whenever, this submit event appears inside form, then select the values
+  // We should not select values right in global scope.
+  // we already know selecting id, but to select values, we will use .value method
+  const height = parseFloat(document.querySelector('#height').value);
+  const weight = parseFloat(document.querySelector('#weight').value);
+  const results = document.querySelector('#results');
+  // if we write it outside the form submit event,the height and weight will not take that particular instance of submit event inputs, but empty one when the page loaded, script loaded and height and weight becoming empty.
+  // we want to extract the value after submit button event appears, or the user clicks button.
+  if (height === '' || height < 0 || isNaN(height)) {
+    results.innerHTML = `Please give a valid height ${height}`;
+  } else if (weight === '' || weight < 0 || isNaN(weight)) {
+    results.innerHTML = `Please give a valid weight ${weight}`;
+  } else {
+    const bmi = (weight / ((height * weight) / 10000)).toFixed(2);
+    let text = '';
+    if (bmi < 18.6) {
+      text = 'Under Weight';
+    } else if (bmi >= 18.6 && bmi <= 24.9) {
+      text = 'Normal Range';
+    } else {
+      text = 'Overweight';
+    }
+    // To show the result
+    results.innerHTML = `<span>${bmi}</span><br>
+    <span>${text}</span>`;
+  }
+});
+
+```
