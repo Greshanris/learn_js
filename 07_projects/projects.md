@@ -1,6 +1,6 @@
 # Projects related to DOM
 
-## Project Link
+## Project Solution Link
 [Click here](https://stackblitz.com/edit/dom-project-chaiaurcode-nzenre?file=index.html)
 
 ## Solution code (solution tried by me)
