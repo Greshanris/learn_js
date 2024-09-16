@@ -6,4 +6,12 @@ will be included
 - exercises
 
 ## Exercises based on Asabeneh/30-Days-Of-JavaScript
-- In [./00_exercises]"./00_exercises"
+[Exercises](./00_exercises/)
+
+## Notes made by me
+[Notes](./00_note/)
+
+## Basics
+- [01: Variables, Datatypes, ConversionOperators, Comparison, Strings, nums and maths, date, and datetypes](./01_basics/)
+- [02](./02_basics/)
+- [03](./03_basics/)
