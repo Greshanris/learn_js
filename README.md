@@ -6,4 +6,4 @@ will be included
 - exercises
 
 ## Exercises based on Asabeneh/30-Days-Of-JavaScript
-- In [./00_exercises]"00_exercises"
+- In [./00_exercises]"./00_exercises"
