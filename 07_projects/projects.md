@@ -1,7 +1,7 @@
 # Projects related to DOM
 
 ## Project Solution Link
-[Click here](https://stackblitz.com/edit/dom-project-chaiaurcode-nzenre?file=index.html)
+[Click here](https://stackblitz.com/edit/dom-project-chaiaurcode-nzenre)
 
 ## Solution code (solution tried by me)
 
@@ -133,6 +133,7 @@ form.addEventListener('submit', function (e) {
 });
 
 ```
+<<<<<<< HEAD
 
 ### Project 3: Updating Clock time every Second through setInterval method.
 
@@ -174,3 +175,5 @@ setInterval(function (){
 }, 1000)
 
 ```
+=======
+>>>>>>> 6740a27dbd4204ee49f6bb8d68de4862af0cedb5
