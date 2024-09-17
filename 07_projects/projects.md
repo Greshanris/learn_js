@@ -6,7 +6,7 @@
 ## Solution code (solution tried by me)
 
 ### Project 1
-```
+```javascript
 // How to achieve the goal of clicking a button will change the background color?
 
 // Answer:
@@ -75,8 +75,8 @@ buttons.forEach(function (button) {
 });
 
 ```
-## Project 2 Solution tried
-```
+### Project 2 Solution tried
+```javascript
 // Project 2:
 
 /* Through index.html we found out:
@@ -131,5 +131,46 @@ form.addEventListener('submit', function (e) {
     <span>${text}</span>`;
   }
 });
+
+```
+
+### Project 3: Updating Clock time every Second through setInterval method.
+
+```javascript
+// Project 3: To display local time inside that yellow rounded box.
+
+// Let's first examine the index.html:
+/*
+1. Styling is done through css flexbox property.
+2. There is three styling, one to body, one to className center, and one to id center.
+3. There is a parent div with className "center" inside body tag.
+4. Inside the parent div, there is two child div with id "banner" and id "clock".
+5. The child div with id "banner" stores span element with text node "Your local time".
+6. The child div with id "clock" is the yellow rounded box. Inside here, we need to display the local time. */
+
+/*
+const myDate = new Date()
+console.log(myDate.toLocaleTimeString()); // 9:12:52 AM (so, current time)
+
+This is the js for logging Locale time to console.
+
+But it should be updated every second.
+*/
+
+const clock = document.querySelector('#clock');
+// const clockThroughId = document.getElementById('clock');
+
+// let date = new Date()
+// console.log(date.toLocaleTimeString()); // current: 4:34:26 PM
+
+// To update it manually or automatically in seconds, we need a method that controls the events, that is .setInterval() , running continuously in set interval.
+// There is two parameters: one is function, another is the set interval in milisecond. 
+
+setInterval(function (){
+  let date = new Date()
+  // console.log(date.toLocaleTimeString());
+  clock.innerHTML = date.toLocaleTimeString()
+  // console.log(clock.innerHTML)
+}, 1000)
 
 ```
