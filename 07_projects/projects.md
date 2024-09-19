@@ -174,3 +174,171 @@ setInterval(function (){
 }, 1000)
 
 ```
+
+### Projects 4: Number Guessing Game
+```javascript
+// Project 4:
+
+/* Project Description:
+1. It is a Number Guessing Game.
+2. Here, we will have 10 attempts.
+3. The Number we have to guess is between 1 and 100.
+4. We will write it down in input tag.
+5. After one attempt it checks, whether the number we guessed is correct with the random number generated.
+6. If yes, then we won.
+7. If not, then a attempt got reduced and we have to again submit a guess.
+8. It will go on until we lose our all attempt if not guessed properly.
+9. Additionally, the previous guesses will be stored and viewed. here, array.
+10. and Also, as told earlier, Guessess Remaining will also reduce. */
+
+/* Index.html discussion:
+1. There is div with #wrapper.
+2. Inside there is h1, and two p tag which we should not have relation with.
+3. Now, there is a form element. From here, we will have to use js.
+4. With each event, on submit, we need to disable default action, and perform the action of guessing, we could do that.
+5. There is another div outside form element,with className "resultParas"
+6. There is a p tag with "Previous Guesses" written inside the span element with class="Guesses" where we need to view the previous guesses.
+7. There is another p tag with "Guesses Remaining" with class = "lastResult" whose text value 10 needs to be reduced with each click.
+8. There is additional p tag with class ="lowOrHi" which is empty, probably trying to result the score into low score, if certain score is low, and high, if certain score is high. */
+
+/*
+This is the game of 
+viewing one time won, but after 
+guessing one right, storing the 
+score in an empty variable, and keep 
+on adding and storing if guessed right, and 
+based on it viewing whether the 
+score is high or low. */
+
+// Let's get started:
+
+// for random number from 1 to 100
+let randomNumber = parseInt(Math.random() * 100 + 1);
+
+// for selecting needed, and wanted classes and ids as HTMLCollection
+const submit = document.querySelector('#subt');
+// console.log(submit);
+const userInput = document.querySelector('#guessField');
+
+const guessSlot = document.querySelector('.guesses');
+const remaining = document.querySelector('.lastResult');
+const lowOrHi = document.querySelector('.lowOrHi');
+
+// Selecting the .resultParas so that the we can display to StartOver Again.
+const startOver = document.querySelector('.resultParas');
+
+const p = document.createElement('p');
+
+// Strategy:
+// initializing counters for tracking
+let prevGuess = [];
+// User Attempts initialization starting from 1
+let numGuess = 1;
+
+// There is always a variable that allows users to play the game, like suppose our events is finished, or coins is all spent, this condition checked first.
+let playGame = true;
+
+// First of all to check whether the user is available to play game.
+if (playGame) {
+  submit.addEventListener('click', function (e) {
+    e.preventDefault();
+    const guessString = userInput.value;
+    const guess = parseInt(guessString);
+    if (/^\d+[a-zA-z]/.test(guessString)) {
+      const userConfirmed = confirm(
+        `Your input contains letters. Do you want to use "${guess}" instead of "${guessString}"?`
+      );
+
+      if (userConfirmed) {
+        validateGuess(guess);
+      } else {
+        alert('Please reenter a valid number.');
+      }
+    } else {
+      // here, hoisting
+      validateGuess(guess);
+    }
+  });
+}
+
+function validateGuess(guess) {
+  // checking whether the value is valid or not
+  if (isNaN(guess)) {
+    alert('Please enter a valid number.');
+  } else if (guess < 1) {
+    alert('Please enter a number more than 0');
+  } else if (guess > 100) {
+    alert('Please enter a number less than 100');
+  } else {
+    // putting value to prevGuess array
+    prevGuess.push(guess);
+    // if it is the 10th attempt,
+    if (numGuess >= 10) {
+      displayGuess(guess);
+      // displaying message
+      displayMessage(`Game Over. Random Number was ${randomNumber}`);
+      endGame();
+    } else {
+      displayGuess(guess);
+      checkGuess(guess);
+    }
+  }
+}
+
+function checkGuess(guess) {
+  // Checks whether the number entered is equal to random number generated at that time.
+  if (guess === randomNumber) {
+    displayMessage(
+      `You guessed it Right. The random number was ${randomNumber}.`
+    );
+    endGame();
+  } else if (guess < randomNumber) {
+    displayMessage(`Number is too low`);
+  } else if (guess > randomNumber) {
+    displayMessage('Number is too high');
+  }
+}
+
+function displayGuess(guess) {
+  // Making User Input empty after each attempt
+  // Displaying previous guesses.
+  // Updating previous Guesses array after each attempt
+  // updating number of guessed
+  guessSlot.innerHTML += `${guess} , `;
+  remaining.innerHTML = `${10 - numGuess}`;
+  numGuess++;
+  userInput.value = '';
+}
+
+function displayMessage(message) {
+  // Interacts DOM to display message
+  // Displays Winning message after winning. like low or high.
+  lowOrHi.innerHTML = `<h2>${message}</h2>`;
+}
+
+function endGame() {
+  userInput.value = '';
+  userInput.setAttribute('disabled', '');
+  p.classList.add('button');
+  p.innerHTML = `<h2 id="newGame">Start new Game</h2>`;
+  startOver.appendChild(p);
+  playGame = false;
+  newGame();
+}
+
+function newGame() {
+  const newGameButton = document.querySelector('#newGame');
+  newGameButton.addEventListener('click', function (e) {
+    randomNumber = parseInt(Math.random() * 100 + 1);
+    prevGuess = [];
+    numGuess = 1;
+    guessSlot.innerHTML = '';
+    remaining.innerHTML = `${11 - numGuess}`;
+    userInput.removeAttribute('disabled');
+    startOver.removeChild(p);
+    playGame = true;
+  });
+}
+
+```
+
