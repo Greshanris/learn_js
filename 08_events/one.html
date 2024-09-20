@@ -27,9 +27,20 @@
     // }
 
     // Best approach right now
-    document.getElementById('parrot').addEventListener('click', function (e) {
-        alert('parrot clicked again')
-    }, false) // The third parameter is default false, so we don't need to write it down.
+    // document.getElementById('parrot').addEventListener('click', function () {
+    //     alert('parrot clicked again')
+    // }, false) // The third parameter is default false, so we don't need to write it down.
     // There are some applications where without writing the third parameter as true or false, it will not work as intended.
+
+    // Another approach: attachEvent()
+    // jQuery - on
+
+    document.getElementById('parrot').addEventListener('click', function (e) {
+        console.log(e); // returns event object
+    }, false)
+    // types: ?, timestamp: ?, defaultPrevented
+    // target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY, Position related
+    // altkey, ctrlkey, shiftkey, keyCode
 </script>
 </html>
