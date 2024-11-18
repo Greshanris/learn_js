@@ -37,8 +37,17 @@
 
     document.getElementById('parrot').addEventListener('click', function (e) {
         console.log(e); // returns event object
+        console.log("Event Type:", e.type);
+        console.log("Timestamp:", e.defaultPrevented);
+        console.log("Target Element:", e.target.tagName);
+        console.log("Current Target:", e.currentTarget.id);
+        console.log("Mouse Position (client):", e.clientX, e.clientY);
+        console.log("Mouse Position (screen):", e.screenX, e.screenY);
+        console.log("Modifier Keys - Alt:", e.altKey, "Ctrl:", e.ctrlKey, "shift:", e.shiftKey);
     }, false)
-    // types: ?, timestamp: ?, defaultPrevented
+    // event object exploration
+    // types: click, keydown, submit, 
+    // timestamp: ?, defaultPrevented
     // target, toElement, srcElement, currentTarget
     // clientX, clientY, screenX, screenY, Position related
     // altkey, ctrlkey, shiftkey, keyCode
