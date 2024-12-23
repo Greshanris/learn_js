@@ -35,21 +35,69 @@
     // Another approach: attachEvent()
     // jQuery - on
 
-    document.getElementById('parrot').addEventListener('click', function (e) {
-        console.log(e); // returns event object
-        console.log("Event Type:", e.type);
-        console.log("Timestamp:", e.defaultPrevented);
-        console.log("Target Element:", e.target.tagName);
-        console.log("Current Target:", e.currentTarget.id);
-        console.log("Mouse Position (client):", e.clientX, e.clientY);
-        console.log("Mouse Position (screen):", e.screenX, e.screenY);
-        console.log("Modifier Keys - Alt:", e.altKey, "Ctrl:", e.ctrlKey, "shift:", e.shiftKey);
+    // Self-study and self-exploration
+    /* event object exploration
+        types: , 
+        timestamp: ?, defaultPrevented
+        target, toElement, srcElement, currentTarget
+        clientX, clientY, screenX, screenY, Position related
+        altkey, ctrlkey, shiftkey, keyCode 
+    */
+    // document.getElementById('parrot').addEventListener('click', function (e) {
+    //     console.log(e); // returns event object
+    //     console.log("Event Type:", e.type); // returned Event Type: click
+    //     console.log("Timestamp:", e.defaultPrevented); // returned Timestamp: false
+    //     console.log("Target Element:", e.target.tagName); // returned Target Element: IMG
+    //     console.log("Current Target:", e.currentTarget.id); // returned Current Target: parrot
+    //     console.log("Mouse Position (client):", e.clientX, e.clientY); // returned Mouse Position (client): 160 505
+    //     console.log("Mouse Position (screen):", e.screenX, e.screenY); // returned Mouse Position (screen): 161 626
+    //     console.log("Modifier Keys - Alt:", e.altKey, "Ctrl:", e.ctrlKey, "shift:", e.shiftKey);
+    // }, false) // All retured boolean(false)
+
+
+    // Event Propagation
+    
+    /* Event Propagation has two context:
+
+        1. Event Bubbling: default, which  is false, also mostly used in market.
+
+        2. Event capturing: for some instance, event capturing is used
+        
+        true is for capturing phase, false is for bubbling phase */
+    
+    /* Just how bubble goes upward, so,
+     here, we clicked inner element
+     (images), then, li and then, ul.
+      That's what bubbling phase means: false
+      
+      While, the capturing phase, do vice versa.*/
+    // document.getElementById("images"). addEventListener("click", function(e){
+    //     console.log("clicked inside the ul");
+    // }, false) 
+
+    // document.getElementById("parrot").addEventListener("click", function(e){
+    //     console.log("parrot clicked");
+    //     e.stopPropagation(); // stops the event propagation, so, it will not go to the parent elements.
+    // }, false);
+
+    // document.getElementById("google").addEventListener("click", function(e) {
+    //     e.preventDefault(); // stops the default behaviour of the element.
+    //     e.stopPropagation();
+    //     console.log("google clicked");
+    // }, false)
+
+
+    // Task: whenever image is clicked, the list should be removed on which image is declared.
+
+    document.querySelector("#images").addEventListener("click", function(e){
+        console.log(e.target.parentNode);
+        if (e.target.tagName === "IMG") {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode;
+            removeIt.remove()
+        }
+        // we can use this method as well.
+        // removeIt.parentNode.removeChild(removeIt)
     }, false)
-    // event object exploration
-    // types: , 
-    // timestamp: ?, defaultPrevented
-    // target, toElement, srcElement, currentTarget
-    // clientX, clientY, screenX, screenY, Position related
-    // altkey, ctrlkey, shiftkey, keyCode
 </script>
 </html>
