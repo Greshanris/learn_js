@@ -38,3 +38,4 @@ If, web api is given, then DOM is given there, which is in browser. If, we use n
 so, when we use set_interval() function, set_timeout() function, and fetch() function, which comes into the webAPI category, it creates a REGISTER CALLBACK. 
 
 For instance, if we use, set_interval(1), the code which is put to execute after this set_interval() will be put into REGISTER CALLBACK, and only after this set interval, the code gets executed. This all happens, by lining it up like queue and which is called Task-queue and puts inside the JS engine CALLSTACK, which then gets immediately executed. High-priority task-queue is the task-queue which is based on events like if the mouse clicks something, or the mouse hovers some button, then do this code. It is mainly used with fetch() and when the events gets triggered, the task-inside high-priority queue immediately gets envoked through CALLSTACK.
+![image-1](image-1.png)

@@ -107,10 +107,24 @@ consumePromiseFive();
 // getAllUsers()
 
 fetch("https://api.github.com/users/Greshanris")
-.then((response, resolve) => {
+.then((response) => {
     return response.json()
 })
 .then((data) => {
     console.log(data);
 })
 .catch((error) => console.log(error));
+
+/* fetch() method:
+        - It is a method that starts the process of fetching a resource from the network returning a promise which is fulfilled once the response is available.
+        - The promise resolves to the Response Object representing the response to your object.
+        - A fetch() promise only rejects when a network error is encountered (which is usually when there's a permissions issue or similar).
+        - A fetch() promise does not reject on HTTP errors(404, etc.).Instead, a then() handler must check the Response.ok and/or Response.status properties. 
+        
+fetch can be divided into two parts:
+- web browser/node environment which is responsible for fetching the data through network request.
+- Data:____(whichever name it is, but it is data), this is further divided into two arrays:
+    - onfulfilled[] (Resolve)
+    - onRejection[] (Reject)
+
+when network request gets succedeed or rejected, the arrays get's filled with values which we use     */
